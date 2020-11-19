@@ -111,6 +111,9 @@
         <p><strong>{{localize "SPELL.RANK"}}:</strong> {{data.rank}}</p>
         <p><strong>{{localize "SPELL.RANGE"}}:</strong> {{data.range}}</p>
         <p><strong>{{localize "SPELL.DURATION"}}:</strong> {{data.duration}}</p>
+        {{#if data.talent}}
+        <p><strong>{{localize "ITEM.TALENT"}}:</strong> {{data.talent}}</p>
+        {{/if}}
         {{#if data.ingredient}}
         <p><strong>{{localize "SPELL.INGREDIENT"}}:</strong> {{data.ingredient}}</p>
         {{/if}}

@@ -24,6 +24,10 @@
   margin-bottom: 8px;
 }
 
+.forbidden-lands.item .header.spell {
+  grid-template-columns: auto 1fr 1fr 1fr;
+}
+
 .forbidden-lands.item .header .name {
   grid-column: 2/-1;
 }

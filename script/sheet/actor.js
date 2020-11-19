@@ -135,7 +135,27 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".roll-spell").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const spell = this.actor.getOwnedItem(itemId);
-      RollDialog.prepareSpellDialog(spell);
+      let testName = spell.name;
+      let attribute = this.actor.data.data.attribute.wits;
+      let skillDefault = {name: game.i18n.localize("ITEM.TALENT"), value: 1};
+      let modifiers = this.getRollModifiers(attribute.label);
+      if (spell.data.data.talent && spell.data.data.talent.length) {
+        let talent = this.actor.findItem(spell.data.data.talent, "talent");
+        if (talent) {
+          skillDefault = {name: spell.data.data.talent, value: talent.data.data.rank};
+          modifiers = this.getRollModifiers(skillDefault.name, modifiers);
+        }
+      }
+      RollDialog.prepareRollDialog(
+        testName,
+        {name: game.i18n.localize(attribute.label), value: attribute.value},
+        skillDefault,
+        {name: game.i18n.localize("BIO.WILLPOWER"), value: 1},
+        modifiers.artifacts.join(" "),
+        modifiers.modifier,
+        0,
+        this.diceRoller
+      );
     });
     html.find(".roll-action").click((ev) => {
       const rollName = $(ev.currentTarget).data("action");

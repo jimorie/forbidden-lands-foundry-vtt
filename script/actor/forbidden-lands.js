@@ -12,6 +12,15 @@ export class ForbiddenLandsActor extends Actor {
     }
     super.createEmbeddedEntity(embeddedName, newData, options);
   }
+
+  findItem(itemName, itemType) {
+    for (let item of this.items.values()) {
+      if (item.name === itemName && item.type === itemType) {
+        return item;
+      }
+    }
+    return null;
+  }
 }
 
 export class ForbiddenLandsItem extends Item {
