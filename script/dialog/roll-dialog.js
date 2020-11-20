@@ -11,11 +11,11 @@ export class RollDialog {
      * @param  {object|number} gearDefault     {name: "somename", value: 5} | 5
      * @param  {string}        artifactDefault
      * @param  {number}        modifierDefault
-     * @param  {number}        damage
      * @param  {DiceRoller}    diceRoller
+     * @param  {items}         list of used items
      * @param  {callback}      [onAfterRoll]
      */
-    static prepareRollDialog(rollName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, damage, diceRoller, onAfterRoll) {
+    static prepareRollDialog(rollName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, diceRoller, items, onAfterRoll) {
         if (!diceRoller) {
           throw new Error('DiceRoller object must be passed to prepareRollDialog()');
         }
@@ -45,13 +45,13 @@ export class RollDialog {
                         let artifact = this.parseArtifact(html.find('#artifacts')[0].value);
                         let modifier = html.find('#modifier')[0].value;
                         diceRoller.roll(
-                            game.i18n.localize(rollName),
+                            rollName,
                             parseInt(base, 10),
                             parseInt(skill, 10),
                             parseInt(gear, 10), 
                             artifact,
                             parseInt(modifier, 10),
-                            parseInt(damage, 10)
+                            items
                         );
                         onAfterRoll(diceRoller);
                     }

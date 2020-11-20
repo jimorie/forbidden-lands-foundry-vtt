@@ -76,8 +76,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         0,
         modifiers.artifacts.join(" "),
         modifiers.modifier,
-        0,
-        this.diceRoller
+        this.diceRoller,
       );
     });
     html.find(".roll-skill").click((ev) => {
@@ -93,7 +92,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         0,
         modifiers.artifacts.join(" "),
         modifiers.modifier,
-        0,
         this.diceRoller,
       );
     });
@@ -128,8 +126,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         bonus, 
         modifiers.artifacts.join(" "),
         modifiers.modifier,
-        action ? 0 : weapon.data.data.damage, 
-        this.diceRoller
+        this.diceRoller,
+        [weapon],
       );
     });
     html.find(".roll-spell").click((ev) => {
@@ -153,8 +151,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         {name: game.i18n.localize("BIO.WILLPOWER"), value: 1},
         modifiers.artifacts.join(" "),
         modifiers.modifier,
-        0,
-        this.diceRoller
+        this.diceRoller,
+        [spell],
       );
     });
     html.find(".roll-action").click((ev) => {
