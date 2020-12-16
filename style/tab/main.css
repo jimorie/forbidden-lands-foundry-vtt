@@ -1,16 +1,18 @@
 .forbidden-lands .main-tab {
   display: grid;
   gap: 8px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 100%;
 }
 
 .forbidden-lands .attributes {
+  grid-column: 1/5;
   align-items: baseline;
   display: grid;
   gap: 4px 8px;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto auto auto;
   padding: 0 8px 8px;
+  white-space: nowrap;
 }
 
 .forbidden-lands .attributes h1 {
@@ -29,8 +31,36 @@
   width: 2em;
 }
 
+.forbidden-lands .attributes .value input.current {
+  font-weight: bold;
+}
+
+.forbidden-lands .attributes .value input.buffer {
+  opacity: 0.5;
+  color: #0a0;
+  border-color: #0a0;
+}
+
+.forbidden-lands .attributes .value input.damage {
+  opacity: 0.5;
+  color: #a00;
+  border-color: #a00;
+}
+
 .forbidden-lands .attributes .broken {
   color: #a00;
+}
+
+.forbidden-lands .skulls {
+  overflow: hidden;
+}
+
+.forbidden-lands .skulls .skull.buffer {
+  color: #0a0;
+}
+
+.forbidden-lands .conditions {
+  grid-column: 5/-1;
 }
 
 .forbidden-lands .conditions a.condition {
@@ -64,4 +94,50 @@
 
 .forbidden-lands .skills input {
   width: 2em;
+}
+
+.forbidden-lands .main-tab .experience {
+  grid-column: 5/-1;
+}
+
+.forbidden-lands .main-tab .experience  input{
+  width: 4em;
+}
+
+.forbidden-lands .main-tab .experience .name {
+  font-weight: bold;
+}
+
+.forbidden-lands .main-tab .experience .value {
+  font-family: var(--font-input);
+  font-size: 12px;
+  text-align: center;
+  padding: 3px 0px;
+}
+
+.forbidden-lands .main-tab .skills.strength {
+  grid-column: 1/3;
+}
+
+.forbidden-lands .main-tab .skills.agility {
+  grid-column: 3/5;
+}
+
+.forbidden-lands .main-tab .skills.wits {
+  grid-column: 1/3;
+}
+
+.forbidden-lands .main-tab .skills.empathy {
+  grid-column: 3/5;
+}
+
+.forbidden-lands .main-tab .critical-injuries {
+  grid-column: 5/-1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.forbidden-lands .main-tab .critical-injuries .item-list .item {
+  padding: 2px 4px;
 }

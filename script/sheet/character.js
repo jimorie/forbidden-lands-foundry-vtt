@@ -32,6 +32,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     this.computeSkills(data);
     this.computeItems(data);
     this.computeEncumbrance(data);
+    this.computeExperience(data);
     return data;
   }
 
@@ -112,6 +113,47 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       item.isSpell = item.type === "spell";
       item.isCriticalInjury = item.type === "criticalInjury";
     }
+  }
+
+  computeExperience(data) {
+    // Sum costs for all skills and talents
+    let spent = 0;
+    for (let skill of Object.values(data.data.skill)) {
+      spent += this.experienceCost(skill.value);
+    }
+    for (let item of Object.values(data.items)) {
+      if (item.type === "talent") {
+        spent += this.experienceCost(item.data.rank);
+      }
+    }
+    // Find starting experience
+    let start = 0;
+    let attrTotal = 0;
+    for (let attr of Object.values(data.data.attribute)) {
+      attrTotal += attr.max;
+    }
+    if (attrTotal === 15) {
+      start = 85;
+    } else if (attrTotal === 14) {
+      start = 120;
+    } else if (attrTotal === 13) {
+      start = 155;
+    }
+    // Subtract cost for 1 profession talent and 1 kin talent
+    spent -= this.experienceCost(1) * 2;
+    let received = data.data.bio.experience.value;
+    data.data.computedExperience = {
+        start: start,
+        spent: spent,
+        free: start + received - spent,
+    };
+  }
+
+  experienceCost(value) {
+    if (typeof value === "string") {
+      value = parseInt(value, 10);
+    }
+    return (value * (value + 1) / 2) * 5;
   }
 
   _computerItemEncumbrance(data) {

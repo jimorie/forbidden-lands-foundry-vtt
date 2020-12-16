@@ -44,6 +44,7 @@
   "HEADER.CONDITION": "TILLSTÅND",
   "HEADER.CONSUMABLE": "RESURSER",
   "HEADER.CRITICAL_INJURY": "KRITISKA SKADOR",
+  "HEADER.EXPERIENCE": "ERFARENHET",
   "HEADER.WEAPON": "VAPEN",
   "HEADER.SPELL": "BESVÄRJELSER",
   "HEADER.TALENT": "TALANGER",
@@ -198,7 +199,7 @@
   "HIRELING.SALARY": "Lön",
   "HIRELING.DESCRIPTION": "Beskrivning",
   "HIRELING.SUPPLY": "Lager",
-  
+
   "ATTACK.BLUNT": "Kross",
   "ATTACK.FEAR": "Skräck",
   "ATTACK.SLASH": "Hugg",
@@ -220,9 +221,14 @@
   "ACTION.GRAPPLE": "Greppa",
   "ACTION.GRAPPLE_ATTACK": "Tjuvnyp",
   "ACTION.PARRY": "Parad",
-  "ACTION.SHOVE": "Knuff",
   "ACTION.RETREAT": "Retirera",
+  "ACTION.SHOVE": "Knuff",
   "ACTION.UNARMED_STRIKE": "Obeväpnad attack",
+
+  "XP.RECEIVED": "Förvärvade",
+  "XP.START": "Startpott",
+  "XP.SPENT": "Spenderade",
+  "XP.FREE": "Disponibla",
 
   "ATTRIBUTES": "GRUNDEGENSKAPER",
   "SKILLS": "FÄRDIGHETER",

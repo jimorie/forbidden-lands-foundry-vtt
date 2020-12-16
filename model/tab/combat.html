@@ -72,38 +72,6 @@
             </div>
         </div>
     </div>
-    <div class="critical-injuries border">
-        <h1>{{localize "HEADER.CRITICAL_INJURY"}}</h1>
-        <div class="item-list">
-            <div class="header critical-injury flex row">
-                <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
-                <a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"><i
-                        class="fas fa-plus"></i></a>
-            </div>
-            <div class="items">
-                {{#each actor.items as |item|}}
-                {{#if item.isCriticalInjury}}
-                <div class="critical-injury item flex row" data-item-id="{{item._id}}">
-                    <div class="name">
-                        <div class="image-container">
-                            <div class="image" style="background-image: url('{{item.img}}')"></div>
-                        </div>
-                        <div class="name">
-                            <span>{{item.name}}</span>
-                        </div>
-                    </div>
-                    <div class="button">
-                        <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-                        <a class="item-control item-delete" title="Delete Critical Injury"><i
-                                class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-                {{/if}}
-                {{/each}}
-            </div>
-        </div>
-    </div>
     <div class="actions border flex row">
         <h1 class="grow">{{localize "HEADER.ACTIONS"}}</h1>
         <div class="flex row wrap">

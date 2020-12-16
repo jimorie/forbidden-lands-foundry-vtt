@@ -44,6 +44,7 @@
   "HEADER.CONDITION": "CONDITIONS",
   "HEADER.CONSUMABLE": "CONSUMABLES",
   "HEADER.CRITICAL_INJURY": "CRITICAL INJURIES",
+  "HEADER.EXPERIENCE": "EXPERIENCE",
   "HEADER.WEAPON": "WEAPONS",
   "HEADER.SPELL": "SPELLS",
   "HEADER.TALENT": "TALENTS",
@@ -198,7 +199,7 @@
   "HIRELING.SALARY": "Salary",
   "HIRELING.DESCRIPTION": "Description",
   "HIRELING.SUPPLY": "Supply",
-  
+
   "ATTACK.BLUNT": "Blunt",
   "ATTACK.FEAR": "Fear",
   "ATTACK.SLASH": "Slash",
@@ -220,7 +221,12 @@
   "ACTION.GRAPPLE": "Grapple",
   "ACTION.GRAPPLE_ATTACK": "Grapple attack",
   "ACTION.PARRY": "Parry",
-  "ACTION.SHOVE": "Shove",
   "ACTION.RETREAT": "Retreat",
-  "ACTION.UNARMED_STRIKE": "Unarmed strike"
+  "ACTION.SHOVE": "Shove",
+  "ACTION.UNARMED_STRIKE": "Unarmed strike",
+
+  "XP.RECEIVED": "Received",
+  "XP.START": "Start",
+  "XP.SPENT": "Spent",
+  "XP.FREE": "Free"
 }

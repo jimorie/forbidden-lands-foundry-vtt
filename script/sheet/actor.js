@@ -11,12 +11,36 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".change-attribute").on("click contextmenu", (ev) => {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
-      let value = attribute.value;
+      let max = attribute.max || 0;
+      let buffer = attribute.buffer || 0;
+      let damage = attribute.damage || 0;
       if (ev.type === "click") {
-        value = Math.max(value - 1, 0);
+        damage = Math.min(damage + 1, max + buffer);
       } else if (ev.type === "contextmenu") {
-        value = Math.min(value + 1, attribute.max);
+        damage = Math.max(damage - 1, 0);
       }
+      let value = max - Math.max(damage - buffer, 0);
+      this.actor.update({
+        ["data.attribute." + attributeName + ".value"]: value,
+        ["data.attribute." + attributeName + ".damage"]: damage,
+      });
+    });
+    html.find(".set-attribute").on("change", (ev) => {
+      const attributeName = $(ev.currentTarget).data("attribute");
+      const attribute = this.actor.data.data.attribute[attributeName];
+      let max = attribute.max || 0;
+      let buffer = attribute.buffer || 0;
+      let damage = attribute.damage || 0;
+      // Attribute state may not yet be updated, so use the input value
+      let newValue = parseInt(ev.currentTarget.value, 10) || 0;
+      if (ev.currentTarget.name.endsWith(".max")) {
+        max = newValue;
+      } else if (ev.currentTarget.name.endsWith(".buffer")) {
+        buffer = newValue;
+      } else if (ev.currentTarget.name.endsWith(".damage")) {
+        damage = newValue;
+      }
+      let value = max - Math.max(damage - buffer, 0);
       this.actor.update({
         ["data.attribute." + attributeName + ".value"]: value,
       });
@@ -170,7 +194,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         0,
         modifiers.artifacts.join(" "),
         modifiers.modifier,
-        0,
         this.diceRoller,
       );
     });

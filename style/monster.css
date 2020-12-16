@@ -65,9 +65,15 @@
 }
 
 .forbidden-lands .monster .attributes {
-  grid-column-end: span 2;
+  grid-column-end: span 6;
 }
 
-.forbidden-lands .monster .conditions {
-  display: none;
+.forbidden-lands .monster .skills {
+  grid-column-end: span 3;
+}
+
+.forbidden-lands .monster .experience,
+.forbidden-lands .monster .conditions,
+.forbidden-lands .monster .critical-injuries {
+  display: none !important;
 }

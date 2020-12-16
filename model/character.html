@@ -44,20 +44,13 @@
                     </tr>
                     <tr>
                         <td>
-                            <label>{{localize data.bio.experience.label}}:</label>
-                        </td>
-                        <td>
-                            <input name="data.bio.experience.value" type="number" value="{{data.bio.experience.value}}"
-                                data-dtype="Number" />
-                        </td>
-                        <td>
                             <label>{{localize data.bio.willpower.label}}:</label>
                         </td>
                         <td>
                             <input name="data.bio.willpower.value" type="number" value="{{data.bio.willpower.value}}"
                                 min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}" data-dtype="Number" />
                         </td>
-                        <td colspan="2">
+                        <td colspan="4">
                             <div class="skulls {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center">
                                 <a class="change-willpower">
                                     {{#skulls data.bio.willpower.value data.bio.willpower.max}}

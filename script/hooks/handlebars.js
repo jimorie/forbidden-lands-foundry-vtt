@@ -38,6 +38,19 @@ function registerHandlebarsHelpers() {
     }
     return acc;
   });
+  Handlebars.registerHelper("bufferedSkulls", function (damage, max, buffer, block) {
+    var acc = "";
+    damage = damage || 0;
+    max = max || 0;
+    buffer = buffer || 0;
+    for (var i = 0; i < max + buffer; ++i) {
+      block.data.index = i;
+      block.data.damaged = i >= max + buffer - damage;
+      block.data.buffered = i >= max;
+      acc += block.fn(this);
+    }
+    return acc;
+  });
   Handlebars.registerHelper("damageType", function (type) {
     type = normalize(type, "blunt");
     switch (type) {

@@ -10,6 +10,10 @@
   margin-left: 8px;
 }
 
+.forbidden-lands .character .bio input[type=text] {
+  min-width: 12em;
+}
+
 .forbidden-lands .character .bio table {
   width: auto;
   background: none;
