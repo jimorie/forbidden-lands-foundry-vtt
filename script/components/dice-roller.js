@@ -126,9 +126,6 @@ export default class DiceRoller {
    * @param  {boolean} isPushed Whether roll was pushed
    */
   async sendRollToChat(isPushed) {
-    this.dices.sort(function (a, b) {
-      return b.weight - a.weight;
-    });
     let numberOfSword = this.countSword();
     let numberOfSkull = this.countSkull();
     let rollData = {
