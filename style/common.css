@@ -304,11 +304,10 @@
 }
 .forbidden-lands.chat-item .link-header {
   text-align: center;
+  height: 24px;
 }
 .forbidden-lands.chat-item .link-header a {
   display: none;
-  line-height: 16px;
-  margin: 0 0 4px;
 }
 .forbidden-lands.chat-item .link-header:hover a {
   display: inline-block;
